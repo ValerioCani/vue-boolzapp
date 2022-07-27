@@ -188,19 +188,15 @@ var app = new Vue({
 
         lasthours(index, position){
             let chatArray = this.contacts_array[index].messages;
+            let currentmessage = '';
             if(position == -1){
-                let lastmessage = chatArray[chatArray.length - 1];
-                let dateArray = lastmessage.date;
-                let splittedArray = dateArray.split(' ');
-                let HoursArray = splittedArray[1].split(':')
-                return HoursArray[0]+':'+HoursArray[1];
+                 currentmessage = chatArray[chatArray.length - 1];
             }else{
-                let currentmessage = chatArray[position];
-                let dateArray = currentmessage.date;
-                let splittedArray = dateArray.split(' ');
-                let HoursArray = splittedArray[1].split(':')
-                return HoursArray[0]+':'+HoursArray[1]; 
+                 currentmessage = chatArray[position];
             };
+            let timeArray = currentmessage.date.split(' ');
+            let HoursArray = timeArray[1].split(':')
+            return HoursArray[0]+':'+HoursArray[1]; 
         },
 
         displaymessages(index){
@@ -224,6 +220,7 @@ var app = new Vue({
                                             </div>`;
                 };
             };
+            
         }
     },
 
