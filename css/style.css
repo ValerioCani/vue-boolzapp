@@ -3,3 +3,57 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: #009688;
+}
+
+#app{
+    margin-top: 150px;
+    height:calc(100vh - 150px);
+    background-color: #DADBD4;
+}
+
+#container{
+    position: relative;
+    bottom: 125px;
+    width: 80%;
+    height: calc(100% + 100px);
+    margin: auto;
+    display: flex;
+}
+
+#contacts{
+    height: 100%;
+    width: 35%;
+    min-width: 200px;
+}
+
+#chat-interface{
+    height: 100%;
+    background-color: rgb(14, 10, 233);/*debuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuug*/
+    width: 65%;
+    min-width: 200px;
+}
+
+#body-chat, #register{
+    height: calc(100% - 140px);
+    overflow-y: scroll;
+    background-color: rgb(10, 218, 233);/*debuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuug*/
+}
+
+#body-chat{
+    background-image: url(../img/mine.jpg);
+}
+
+header, footer, #system-alert{
+    height: 70px;
+    background-color: #EAEAEA;
+}
+
+#system-alert{
+    background-color: #8EDAFC;
+}
+
+#input-chat{
+    background-color: #F3EEEA;
+}
