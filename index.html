@@ -22,11 +22,12 @@
                             <div class="contacts-card" v-for="(card, indice) in contacts_array">
                                 <img class="contacts-card-img" :src="'img/avatar'+card.avatar+'.jpg'" alt="">
                                 <div class="contacts-card-info">
-                                    <h2>bla</h2>
-                                    <h5>bla</h5>
+                                    <h2>{{card.name}}</h2>
+                                    <h5>{{sentreceived(indice)}}</h5>
+                                    <h5>il {{lastdate(indice)}}</h5>
                                 </div>
                                 <div class="contacts-card-time">
-                                    <h5>bla</h5>
+                                    <h5>{{lasthours(indice)}}</h5>
                                 </div>
                             </div>
 

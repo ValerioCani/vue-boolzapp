@@ -2,6 +2,7 @@ var app = new Vue({
     el: '#app',
 
     data:{
+        lastmessage : [],
         contacts_array: [
             {
                 name: 'Michele',
@@ -87,7 +88,7 @@ var app = new Vue({
                 ],
             },
             {
-                name: 'Alessandro L.',
+                name: 'Alessandro L.', 
                 avatar: '_5',
                 visible: true,
                 messages: [
@@ -165,5 +166,36 @@ var app = new Vue({
                 ],
             }
         ]
+    },
+
+
+    methods:{
+
+        sentreceived(index){
+            let chatArray = this.contacts_array[index].messages;
+            if(chatArray[chatArray.length - 1].status =='sent'){
+                result='inviato';
+            }else{
+                result='ricevuto';
+            };
+            return "ultimo messaggio "+result
+        },
+
+        lastdate(index){
+            let chatArray = this.contacts_array[index].messages;
+            let dateArray = chatArray[chatArray.length - 1].date.split(' ');
+            return dateArray[0];
+        },
+
+        lasthours(index){
+            let chatArray = this.contacts_array[index].messages;
+            let dateArray = chatArray[chatArray.length - 1].date.split(' ');
+            let HoursArray = dateArray[1].split(':');
+            return HoursArray[0]+':'+HoursArray[1];
+        }
     }
 })
+
+
+
+
