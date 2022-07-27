@@ -2,7 +2,7 @@ var app = new Vue({
     el: '#app',
 
     data:{
-        contacts: [
+        contacts_array: [
             {
                 name: 'Michele',
                 avatar: '_1',

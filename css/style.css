@@ -30,18 +30,38 @@ body{
 
 #chat-interface{
     height: 100%;
-    background-color: rgb(14, 10, 233);/*debuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuug*/
     width: 65%;
     min-width: 200px;
 }
 
-#body-chat, #register{
-    height: calc(100% - 140px);
-    overflow-y: scroll;
-    background-color: rgb(10, 218, 233);/*debuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuug*/
+.contacts-card{
+    height: 80px;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    border: solid 1px #E9EBEB;
 }
 
-#body-chat{
+.contacts-card-info{
+    width: 70%;
+    margin-left: 20px;
+}
+
+.contacts-card h5{
+    color: #acacac;
+}
+
+.contacts-card-img{
+    border-radius: 50%;
+}
+
+#main-chat, #main-contacts{
+    height: calc(100% - 140px);
+    overflow-y: scroll;
+    background-color: #fff;
+}
+
+#main-chat{
     background-image: url(../img/mine.jpg);
 }
 
