@@ -19,15 +19,15 @@
                         <div id="contacts-search"></div>
                         <div id="contacts-list">
 
-                            <div class="contacts-card" v-for="(card, indice) in contacts_array">
+                            <div class="contacts-card" v-for = "(card, indice) in contacts_array" @click="displaymessages(indice)">
                                 <img class="contacts-card-img" :src="'img/avatar'+card.avatar+'.jpg'" alt="">
                                 <div class="contacts-card-info">
                                     <h2>{{card.name}}</h2>
-                                    <h5>{{sentreceived(indice)}}</h5>
+                                    <h5>ultimo messaggio {{sent_received(indice)}}</h5>
                                     <h5>il {{lastdate(indice)}}</h5>
                                 </div>
                                 <div class="contacts-card-time">
-                                    <h5>{{lasthours(indice)}}</h5>
+                                    <h5>{{lasthours(indice, -1)}}</h5>
                                 </div>
                             </div>
 
@@ -37,8 +37,20 @@
 
                 <section id="chat-interface">
                     <header id="head-chat"></header>
+
                     <div id="main-chat">
+
+                        <div class="message received-message">
+                            <p>cazzobubba</p>
+                            <h5>15:00</h5>
+                        </div>
+                    
+                        <div class="message sent-message">
+                            <p>ma che vuoi?</p>
+                        </div>
+
                     </div>
+
                     <footer id="input-chat"></footer>
                 </section>
             </div>

@@ -2,7 +2,6 @@ var app = new Vue({
     el: '#app',
 
     data:{
-        lastmessage : [],
         contacts_array: [
             {
                 name: 'Michele',
@@ -171,14 +170,14 @@ var app = new Vue({
 
     methods:{
 
-        sentreceived(index){
+        sent_received(index){
             let chatArray = this.contacts_array[index].messages;
             if(chatArray[chatArray.length - 1].status =='sent'){
                 result='inviato';
             }else{
                 result='ricevuto';
             };
-            return "ultimo messaggio "+result
+            return result
         },
 
         lastdate(index){
@@ -187,13 +186,47 @@ var app = new Vue({
             return dateArray[0];
         },
 
-        lasthours(index){
+        lasthours(index, position){
             let chatArray = this.contacts_array[index].messages;
-            let dateArray = chatArray[chatArray.length - 1].date.split(' ');
-            let HoursArray = dateArray[1].split(':');
-            return HoursArray[0]+':'+HoursArray[1];
+            if(position == -1){
+                let lastmessage = chatArray[chatArray.length - 1];
+                let dateArray = lastmessage.date;
+                let splittedArray = dateArray.split(' ');
+                let HoursArray = splittedArray[1].split(':')
+                return HoursArray[0]+':'+HoursArray[1];
+            }else{
+                let currentmessage = chatArray[position];
+                let dateArray = currentmessage.date;
+                let splittedArray = dateArray.split(' ');
+                let HoursArray = splittedArray[1].split(':')
+                return HoursArray[0]+':'+HoursArray[1]; 
+            };
+        },
+
+        displaymessages(index){
+            let chatArray = this.contacts_array[index].messages;
+            let mainChat = document.getElementById('main-chat');
+            mainChat.innerHTML = '';
+
+            for(let i=0; i<chatArray.length; i++){
+
+                const hours = this.lasthours(index, i);
+
+                if(chatArray[i].status =='sent'){
+                    mainChat.innerHTML += ` <div class="message sent-message">
+                                                <p>${chatArray[i].message}</p>
+                                                <h5>${hours}</h5>
+                                            </div>`;
+                }else{
+                    mainChat.innerHTML += ` <div class="message received-message">
+                                                <p>${chatArray[i].message}</p>
+                                                <h5>${hours}</h5>
+                                            </div>`;
+                };
+            };
         }
-    }
+    },
+
 })
 
 

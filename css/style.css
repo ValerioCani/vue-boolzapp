@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+/*******************************regole layuot generale*/
 body{
     background-color: #009688;
 }
@@ -22,16 +23,21 @@ body{
     display: flex;
 }
 
+#main-chat, #main-contacts{
+    height: calc(100% - 140px);
+    overflow-y: scroll;
+    background-color: #fff;
+}
+
+header, footer, #system-alert{
+    height: 70px;
+    background-color: #EAEAEA;
+}
+/***********************************regole sezione contatti*/
 #contacts{
     height: 100%;
     width: 35%;
-    min-width: 200px;
-}
-
-#chat-interface{
-    height: 100%;
-    width: 65%;
-    min-width: 200px;
+    min-width: 275px;
 }
 
 .contacts-card{
@@ -39,12 +45,12 @@ body{
     padding: 8px;
     display: flex;
     justify-content: space-between;
-    border: solid 1px #E9EBEB;
+    border-top: solid 1px #E9EBEB;
 }
 
 .contacts-card-info{
-    width: 70%;
-    margin-left: 20px;
+    width: 70%; 
+    overflow: hidden;
 }
 
 .contacts-card h5{
@@ -54,20 +60,16 @@ body{
 .contacts-card-img{
     border-radius: 50%;
 }
-
-#main-chat, #main-contacts{
-    height: calc(100% - 140px);
-    overflow-y: scroll;
-    background-color: #fff;
+/**************************************regole sezione chat*/
+#chat-interface{
+    height: 100%;
+    width: 65%;
+    min-width: 200px;
 }
 
 #main-chat{
     background-image: url(../img/mine.jpg);
-}
-
-header, footer, #system-alert{
-    height: 70px;
-    background-color: #EAEAEA;
+    padding: 0 50px;
 }
 
 #system-alert{
@@ -76,4 +78,36 @@ header, footer, #system-alert{
 
 #input-chat{
     background-color: #F3EEEA;
+}
+
+.message{
+    width: 300px;
+    font-size: large;
+    padding: 10px;
+    position: relative;
+}
+
+.message h5{
+    font-size: 10px;
+    color: #ACACAC;
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+}
+
+.received-message p, .sent-message p{
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.received-message{
+    margin-left: auto;
+}
+
+.received-message p{
+    background-color: #D5F9BA;
+}
+
+.sent-message p{
+    background-color: #fff;
 }
