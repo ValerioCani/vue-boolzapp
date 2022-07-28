@@ -1,7 +1,7 @@
 var app = new Vue({
     el: '#app',
-
     data:{
+        newMessage: "",
         contacts_array: [
             {
                 name: 'Michele',
@@ -200,12 +200,19 @@ var app = new Vue({
         },
 
         displaymessages(index){
+
+            let selectedCard = document.getElementsByClassName('selected');
+            if(selectedCard.length>0){
+                selectedCard[0].classList.remove('selected');
+            }
+
             let chatArray = this.contacts_array[index].messages;
             let mainChat = document.getElementById('main-chat');
+            let AllCards = document.getElementsByClassName('contacts-card');
+            AllCards[index].classList.add('selected');
             mainChat.innerHTML = '';
 
             for(let i=0; i<chatArray.length; i++){
-
                 const hours = this.lasthours(index, i);
 
                 if(chatArray[i].status =='sent'){
@@ -224,11 +231,11 @@ var app = new Vue({
         },
 
         displayprofile(index){
-           let headChat = document.getElementById('head-chat');
-           headChat.innerHTML = `   <img src="img/avatar${this.contacts_array[index].avatar}.jpg" alt="">
+            let headChat = document.getElementById('head-chat');
+            headChat.innerHTML = `  <img src="img/avatar${this.contacts_array[index].avatar}.jpg" alt="">
                                     <div class="chat-card-info">
                                         <h2>${this.contacts_array[index].name}</h2>
-                                        <h5>ultimo messaggio ricevuto</h5>
+                                        <h5>ultimo messaggio ${this.sent_received(index)}</h5>
                                         <h5>il ${this.lastdate(index)} alle ${this.lasthours(index, -1)}</h5>
                                     </div>
                                     <div id="chat-icons">
@@ -236,6 +243,26 @@ var app = new Vue({
                                         <i class="fa-solid fa-paperclip"></i>
                                         <i class="fa-solid fa-ellipsis-vertical"></i>
                                     </div>`;
+        },
+
+        sendmessage(){
+            let DateTime = luxon.DateTime;
+            let mainChat = document.getElementById('main-chat');
+            let message = this.newMessage;
+            if(!message.trim()==""){
+                mainChat.innerHTML += ` <div class="message sent-message">
+                                                    <p>${this.newMessage}</p>
+                                                    <h5>${DateTime.now().toFormat('H:mm')}</h5>
+                                                </div>`;
+                this.newMessage = "";
+                setTimeout(function(){
+                    mainChat.innerHTML += ` <div class="message received-message">
+                                                        <p>ok</p>
+                                                        <h5>${DateTime.now().toFormat('H:mm')}</h5>
+                                                    </div>`;
+                    
+                }, 1000);
+            }
         }
     },
 

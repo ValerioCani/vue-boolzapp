@@ -23,12 +23,23 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </header>
-                    <div id="system-alert"></div>
+                    <div id="system-alert">
+                        <span>
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </span>
+                        <div>
+                            <h4>Ricevi notifiche di nuovi messaggi</h4>
+                            <h5><u>Attiva notifiche desktop</u></h5>
+                        </div>
+                    </div>
                     <div id="main-contacts">
-                        <div id="contacts-search"></div>
+                        <div id="contacts-search">
+                            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <input type="text" placeholder="Cerca o inizia una nuova chat">
+                        </div>
                         <div id="contacts-list">
 
-                            <div class="contacts-card" v-for = "(card, indice) in contacts_array" @click="displaymessages(indice);displayprofile(indice)">
+                            <div class="contacts-card" v-for = "(card, indice) in contacts_array" @click="displaymessages(indice); displayprofile(indice)">
                                 <img class="contacts-card-img" :src="'img/avatar'+card.avatar+'.jpg'" alt="">
                                 <div class="contacts-card-info">
                                     <h2>{{card.name}}</h2>
@@ -78,10 +89,15 @@
 
                     </div>
 
-                    <footer id="input-chat"></footer>
+                    <footer id="input-chat">
+                        <i class="fa-solid fa-paper-plane" @click="sendmessage()"></i>
+                        <input type="text" v-model="newMessage" v-on:keyup.enter="sendmessage" id="messagespot" placeholder="Scrivi un messaggio">
+                        <i class="fa-solid fa-microphone"></i>
+                    </footer>
                 </section>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/luxon@3.0.1/build/global/luxon.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
     </body>
