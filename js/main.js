@@ -2,6 +2,7 @@ var app = new Vue({
     el: '#app',
     data:{
         newMessage: "",
+        profileSearch:"",
         contacts_array: [
             {
                 name: 'Michele',
@@ -262,6 +263,13 @@ var app = new Vue({
                                                     </div>`;
                     
                 }, 1000);
+            }
+        },
+
+        filterContacts(){
+            if(!this.profileSearch==""){
+                console.log(this.profileSearch);
+                this.profileSearch = "";
             }
         }
     },
