@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Boolzapp</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
@@ -13,13 +14,21 @@
             <div id="container">
 
                 <section id="contacts">
-                    <header id="head-contacts"></header>
+                    <header id="head-contacts">
+                        <img src="img/avatar_io.jpg" alt="">
+                        <h2>Sofia</h2>
+                        <div id="contacts-icons">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </header>
                     <div id="system-alert"></div>
                     <div id="main-contacts">
                         <div id="contacts-search"></div>
                         <div id="contacts-list">
 
-                            <div class="contacts-card" v-for = "(card, indice) in contacts_array" @click="displaymessages(indice)">
+                            <div class="contacts-card" v-for = "(card, indice) in contacts_array" @click="displaymessages(indice);displayprofile(indice)">
                                 <img class="contacts-card-img" :src="'img/avatar'+card.avatar+'.jpg'" alt="">
                                 <div class="contacts-card-info">
                                     <h2>{{card.name}}</h2>
@@ -38,23 +47,33 @@
                 <section id="chat-interface">
                     <header id="head-chat">
                         <img src="img/avatar_1.jpg" alt="">
-                        <div>
+                        <div class="chat-card-info">
                             <h2>Michele</h2>
                             <h5>ultimo messaggio ricevuto</h5>
                             <h5>il 10/01/2020 alle 16:15</h5>
                         </div>
-                        <div></div>
+                        <div id="chat-icons">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
                     </header>
 
                     <div id="main-chat">
 
-                        <div class="message received-message">
-                            <p>cazzobubba</p>
-                            <h5>15:00</h5>
-                        </div>
-                    
                         <div class="message sent-message">
-                            <p>ma che vuoi?</p>
+                            <p>Hai portato a spasso il cane?</p>
+                            <h5>15:30</h5>
+                        </div>
+
+                        <div class="message sent-message">
+                            <p>Ricordati di stendere i panni</p>
+                            <h5>15:50</h5>
+                        </div>
+
+                        <div class="message received-message">
+                            <p>Tutto fatto!</p>
+                            <h5>16:15</h5>
                         </div>
 
                     </div>

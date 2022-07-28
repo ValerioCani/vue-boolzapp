@@ -34,16 +34,32 @@ header, footer, #system-alert{
     background-color: #EAEAEA;
 }
 
-#head-chat, .contacts-card{
+#head-chat, .contacts-card, #head-contacts{
     padding: 8px;
     display: flex;
     justify-content: space-between;
+}
+
+.contacts-card-img, #head-chat img, #head-contacts img{
+    border-radius: 50%;
+}
+
+#head-contacts h2, .chat-card-info{
+    width:calc(100% - 54px - 125px);
+}
+
+#contacts-icons, #chat-icons{
+    width: 125px;
 }
 /***********************************regole sezione contatti*/
 #contacts{
     height: 100%;
     width: 35%;
     min-width: 275px;
+}
+
+#head-contacts{
+    align-items: center;
 }
 
 .contacts-card{
@@ -56,12 +72,8 @@ header, footer, #system-alert{
     overflow: hidden;
 }
 
-.contacts-card h5{
-    color: #acacac;
-}
-
-.contacts-card-img, #head-chat img{
-    border-radius: 50%;
+.contacts-card h5, #head-contacts, #head-chat i, .chat-card-info h5{
+    color: #ACACAC;
 }
 /**************************************regole sezione chat*/
 #chat-interface{
@@ -72,6 +84,17 @@ header, footer, #system-alert{
 
 #head-chat{    
     height: 70px;
+    align-items: center;
+    border-left: solid 1px #ACACAC;
+}
+
+#head-chat img, #head-contacts img{    
+    height: 100%;
+}
+
+#head-chat i, #head-contacts i{    
+    font-size: 25px;
+    margin: 10px;
 }
 
 #main-chat{
