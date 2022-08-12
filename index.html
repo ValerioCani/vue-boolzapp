@@ -40,7 +40,7 @@
                         </div>
                         <div id="contacts-list">
 
-                            <div class="contacts-card" v-for = "(card, indice) in contacts_array" @click="displaymessages(indice); displayprofile(indice)">
+                            <div class="contacts-card" v-for = "(card, indice) in contacts_array" @click="displaymessages(indice); displayprofile(indice)" v-show = "filterContacts(indice)">
                                 <img class="contacts-card-img" :src="'img/avatar'+card.avatar+'.jpg'" alt="">
                                 <div class="contacts-card-info">
                                     <h2>{{card.name}}</h2>

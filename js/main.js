@@ -266,11 +266,15 @@ var app = new Vue({
             }
         },
 
-        filterContacts(){
-            if(!this.profileSearch==""){
-                console.log(this.profileSearch);
-                this.profileSearch = "";
+        filterContacts(index){
+            if(this.profileSearch==""){
+                return true;
+            }else if(this.contacts_array[index].name.toLowerCase().includes(this.profileSearch.toLowerCase())){
+                return true;
+            }else{
+                return false;
             }
+
         }
     },
 
